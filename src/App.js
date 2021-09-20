@@ -4,6 +4,8 @@ import { Title } from './components/titleComponent';
 import { SearchForm } from './components/searchComponent';
 import React, { Component } from 'react';
 
+import { Movies } from './components/movies';
+
 
 class App extends Component {
   state = {
@@ -15,12 +17,7 @@ class App extends Component {
 
   }
 
-  _renderResults = () => {
-    const {results} = this.state
-    return results.map(movie => { 
-      return <p key={movie.imdbID}>{movie.Title}</p>
-    })
-  }
+
 
   render() {
     return (
@@ -31,7 +28,8 @@ class App extends Component {
           <SearchForm onResults={this._handleResults} />
         </div>
         
-        {this.state.results.length === 0 ? <p>No results</p> : this._renderResults()}
+        {this.state.results.length === 0 ? <p>No results</p> : <Movies movies={this.state.results}/>}
+
 
       </div>
     );
