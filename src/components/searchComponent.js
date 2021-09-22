@@ -20,8 +20,8 @@ export class SearchForm extends Component {
                 results => { 
                     
                     const {Search} = results
-
-                    this.props.onResults(Search)
+                    const searchResults = Search || []
+                    this.props.onResults(searchResults)
                     console.log(Search)
                 }
 
