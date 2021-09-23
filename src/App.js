@@ -28,7 +28,7 @@ class App extends Component {
     const url = new URL(document.location)
     const has_id = url.searchParams.has('id')
     if (has_id) {
-      return <Detail/>
+      return <Detail id={url.searchParams.get('id')}/>
     }
 
     return (
